@@ -1,0 +1,28 @@
+.main-chat
+  .main-chat__group-info
+    .main-chat__group-info__box
+      .main-chat__group-info__box__current-group
+        test
+      .main-chat__group-info__box__participant
+        Member : name
+    .main-chat__group-info__edit
+      = link_to "#" ,class: "edit-btn" do
+        Edit
+  .message-list
+    .message-list__name
+      name  2020/7/5(Sun)
+    .message-list__post
+      おはよう!!
+    .message-list__name
+      name  2020/7/6(Mon)
+    .message-list__post
+      chat-space
+
+  .message-form
+    %form.message-form__new-message
+      .message-form__new-message__input
+        %input.message-form__new-message__input__text
+        %label{class: "message-form__new-message__input__image"}
+          = icon('fas', 'image')
+          %input{type: "file" , class:"hidden"}
+      %input.message-form__new-message__submit-btn{type:"submit" ,value:"SEND"}
