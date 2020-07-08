@@ -1,6 +1,7 @@
 .side-bar
   .side-bar__user-name
     .side-bar__user-name__side-box
+      = current_user.name
       .side-bar__user-name__side-box_register
         %p  name
       .side-bar__user-name__side-box__icon
@@ -8,8 +9,8 @@
           = link_to "#" ,class: "contents__btn" do
             %i.fas.fa-edit
         .side-bar__user-name__side-box__icon__edit
-          = link_to "#" ,class: "contents__btn" do
-            %i.fa.fa-cog
+          = link_to edit_user_path(current_user) do
+            = icon('fas', 'cog', class: 'icon')
   .side-bar__group-list
     .side-bar__group-list__name
       tech camp74-E
