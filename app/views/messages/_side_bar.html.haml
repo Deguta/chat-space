@@ -6,13 +6,16 @@
         %p  name
       .side-bar__user-name__side-box__icon
         .side-bar__user-name__side-box__icon__new-group
-          = link_to "#" ,class: "contents__btn" do
+          = link_to new_group_path ,class: "contents__btn" do
             %i.fas.fa-edit
         .side-bar__user-name__side-box__icon__edit
           = link_to edit_user_path(current_user) do
             = icon('fas', 'cog', class: 'icon')
   .side-bar__group-list
-    .side-bar__group-list__name
-      tech camp74-E
-    .side-bar__group-list__latest-message
-      まだメッセージがありません
+    - current_user.groups.each do |group|
+      .side-bar__group-list__entire
+        =link_to "#" do
+          .side-bar__group-list__name
+            = group.name
+          .side-bar__group-list__latest-message
+            まだメッセージがありません
