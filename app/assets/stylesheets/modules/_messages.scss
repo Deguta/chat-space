@@ -98,11 +98,15 @@
     background-color: #fafafa;
     height: calc(100vh - 190px);
     padding-left: 40px;
+    overflow: scroll;
     &__name{
       font-size: 16px;
       color:#333333;
       display: flex;
       padding: 35px 0px 12px;
+
+      &__upper-message {
+        display: flex;
     }
     &__post{
       font-size: 14px;
@@ -110,6 +114,7 @@
       padding-bottom: 46px;
     }
   }
+}
 
 .message-form{
   width: calc(100vw - 300px);
@@ -117,10 +122,9 @@
   padding: 20px 40px;
   background-color: #999999;
   &__new-message{
-    width:100%;
+    justify-content: space-between;
     display: flex;
     &__input{
-      display: flex;
       width:100%;
       height:50px;
       position: relative;
@@ -134,7 +138,6 @@
         right:10px;
       }
     }
-
     &__submit-btn{
       width: 100px;
       line-height: 50px;
