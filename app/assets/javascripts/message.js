@@ -21,7 +21,7 @@ $(function(){
      return html;
    } else {
      var html =
-      `<div class="message-list__name">
+      `<div class="message-list__name" data-message-id=${message.id}>
          <div class="message-list__name__upper-message">
            <div class="message-list__name__upper-message__user-name">
              ${message.user_name}
@@ -65,10 +65,6 @@ $(function(){
   });
   })
 
-
-  $(function() {
-    //省略
-
       var reloadMessages = function() {
         //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
         var last_message_id = $('.message-list__name:last').data("message-id");
@@ -80,10 +76,11 @@ $(function(){
           type: 'get',
           dataType: 'json',
           //dataオプションでリクエストに値を含める
-          data: {id: last_message_id}
+          data: {last_message_id: last_message_id}
         })
 
         .done(function(messages) {
+          console.log(messages)
           //追加するHTMLの入れ物を作る
           var insertHTML = '';
           //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
@@ -91,11 +88,11 @@ $(function(){
             insertHTML += buildHTML(message)
           });
           //メッセージが入ったHTMLに、入れ物ごと追加
-          $('.messages').append(insertHTML);
+          $('.message-list').append(insertHTML);
         })
         .fail(function() {
           alert('error');
         });
       };
-    });
+      setInterval(reloadMessages, 7000);
 });
