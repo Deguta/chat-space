@@ -81,6 +81,7 @@ $(function(){
 
         .done(function(messages) {
           console.log(messages)
+          if (messages.length !== 0) {
           //追加するHTMLの入れ物を作る
           var insertHTML = '';
           //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
@@ -89,6 +90,8 @@ $(function(){
           });
           //メッセージが入ったHTMLに、入れ物ごと追加
           $('.message-list').append(insertHTML);
+          $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+        }
         })
         .fail(function() {
           alert('error');
