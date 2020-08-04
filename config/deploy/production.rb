@@ -4,7 +4,6 @@
 # You can define all roles on a single server, or split them:
 
 server '176.34.36.173', user: 'ec2-user', roles: %w{app db web}
-
 # role-based syntax
 # ==================
 
